@@ -9,9 +9,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedTabItem = 0;
 
   static const List<Widget> _tabScreens = <Widget>[
-    Text('Talks'),
-    Text('Booths'),
-    Text('Streaming'),
+    Text('Dashboard'),
+    Text('Team'),
+    Text('Profile'),
   ];
 
   void _onItemTapped(int index) {
@@ -24,8 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: incidentButton(context),
         title: const Text('Home Route'),
-        actions: <Widget>[trailingActions(context)],
+        centerTitle: true,
       ),
       body: Container(
         alignment: Alignment.center,
@@ -40,10 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  IconButton trailingActions(BuildContext context) {
+  IconButton incidentButton(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.help_outline),
-      onPressed: () => Navigator.pushNamed(context, '/about'),
+      icon: Icon(
+        Icons.warning,
+        color: Colors.yellow[600],
+      ),
+      onPressed: () => Navigator.pushNamed(context, '/incident'),
     );
   }
 
@@ -52,10 +56,18 @@ class _HomeScreenState extends State<HomeScreen> {
       currentIndex: _selectedTabItem,
       onTap: _onItemTapped,
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.group), title: Text('Talks')),
-        BottomNavigationBarItem(icon: Icon(Icons.place), title: Text('Booths')),
         BottomNavigationBarItem(
-            icon: Icon(Icons.ondemand_video), title: Text('Streaming')),
+          icon: Icon(Icons.dashboard),
+          title: Text('Dashboard'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.group),
+          title: Text('Team'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          title: Text('Profile'),
+        ),
       ],
     );
   }

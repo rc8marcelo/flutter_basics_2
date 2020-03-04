@@ -9,7 +9,7 @@ class SampleApp extends StatelessWidget {
       onGenerateRoute: Router.generateRoute,
       title: "",
       theme: ThemeData(
-        primaryColor: Colors.green,
+        primaryColor: Colors.lightBlue[900],
         accentColor: Colors.yellow,
       ),
     );

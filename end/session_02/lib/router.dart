@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:session_02/screens/about_screen.dart';
-import 'package:session_02/screens/home_screen.dart';
+
+import 'screens/home_screen.dart';
+import 'screens/incident_screen.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -9,9 +10,9 @@ class Router {
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
         );
-      case '/about':
+      case '/incident':
         return MaterialPageRoute(
-          builder: (_) => AboutScreen(),
+          builder: (_) => IncidentScreen(),
         );
       default:
         return MaterialPageRoute(
